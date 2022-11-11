@@ -14,6 +14,21 @@ public class Player : MonoBehaviour
         playerState = PlayerStates.stopped;
     }
 
+    void OnEnable()
+    {
+        
+    }
+
+    void OnDisable()
+    {
+        
+    }
+
+    void ChangeStateToNormal()
+    {
+        playerState = PlayerStates.normal;
+    }
+
     // Update is called once per frame
     void Update()
     {
