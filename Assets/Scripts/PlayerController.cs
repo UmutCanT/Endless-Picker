@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canDrag);
         if(Input.GetMouseButtonDown(0))
         {
             player.PlayerState = PlayerStates.normal;

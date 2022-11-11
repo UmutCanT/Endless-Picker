@@ -7,12 +7,13 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject gate;
     [SerializeField] GameObject progressGround;
     int requiredColletablesToPass =  1;
+    float waitTimeToPass = .5f;
 
     public int RequiredColletablesToPass { get => requiredColletablesToPass; set => requiredColletablesToPass = value; }
 
     public IEnumerator PassGranted()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(waitTimeToPass);
         gate.SetActive(false);
         progressGround.SetActive(true);
     }
