@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class LevelPlatform : MonoBehaviour
 {
@@ -8,8 +9,15 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject progressGround;
     int requiredColletablesToPass =  1;
     float waitTimeToPass = .5f;
+    IObjectPool<LevelPlatform> objectPool;
+
 
     public int RequiredColletablesToPass { get => requiredColletablesToPass; set => requiredColletablesToPass = value; }
+
+    public void SetPool(IObjectPool<LevelPlatform> pool)
+    {
+        objectPool = pool;
+    }
 
     public IEnumerator PassGranted()
     {

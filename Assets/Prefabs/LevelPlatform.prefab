@@ -123,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391062283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.5}
+  m_LocalPosition: {x: 0, y: 0, z: 9.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,10 +150,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391062283}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 1}
+  m_Size: {x: 5, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1680026992
 GameObject:
@@ -238,6 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8523a9056d541b34194ec75462bdd40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gate: {fileID: 2871890426112728335}
+  progressGround: {fileID: 289930033}
 --- !u!1 &2871890424469493133
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2871890424913551362}
   - component: {fileID: 2871890424913551363}
+  - component: {fileID: 2041371476}
   m_Layer: 0
   m_Name: CheckPlatform
   m_TagString: Untagged
@@ -677,6 +680,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.414508, y: 0.5533758, z: 7.036034}
   m_Center: {x: -0.01172781, y: 0.37135118, z: 0.71706927}
+--- !u!114 &2041371476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871890424913551365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d27614a0598aa345bd7330a7afd023d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelPlatform: {fileID: 5158731133961542766}
 --- !u!1 &2871890424953386301
 GameObject:
   m_ObjectHideFlags: 0
