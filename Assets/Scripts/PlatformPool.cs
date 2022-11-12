@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 public class PlatformPool : MonoBehaviour
 {
-    const float LEVEL_PLATFORM_DIFFERENCE_Z = 20f;
+    const float LEVEL_PLATFORM_DIFFERENCE_Z = 10f;
     [SerializeField] LevelPlatform levelPlatformPrefab;
     IObjectPool<LevelPlatform> levelPlatformPool;
     float zLastEndPointPos = 0f;
@@ -23,15 +23,15 @@ public class PlatformPool : MonoBehaviour
     LevelPlatform CreateLevelPlatform()
     {
         LevelPlatform levelPlatform = Instantiate(levelPlatformPrefab);
-        levelPlatform.SetPool(levelPlatformPool);
-        zLastEndPointPos = levelPlatform.EndPointZ;
+        levelPlatform.SetPool(levelPlatformPool);      
         return levelPlatform;
     }
 
     void OnGet(LevelPlatform lPlatform)
-    {
-        lPlatform.transform.position = new Vector3(0, 0, zSpawnPoint());
-        lPlatform.gameObject.SetActive(true);        
+    {        
+        lPlatform.gameObject.SetActive(true);
+        lPlatform.transform.position = new Vector3(0, 0, SpawnPointZ());
+        zLastEndPointPos = lPlatform.EndPointZ;
     }
 
     void OnRelease(LevelPlatform lPlatform)
@@ -39,7 +39,7 @@ public class PlatformPool : MonoBehaviour
         lPlatform.gameObject.SetActive(false);      
     }
 
-    public float zSpawnPoint()
+    public float SpawnPointZ()
     {
         return zLastEndPointPos + LEVEL_PLATFORM_DIFFERENCE_Z;
     }
