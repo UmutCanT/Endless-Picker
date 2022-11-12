@@ -16,17 +16,26 @@ public class Player : MonoBehaviour
 
     void OnEnable()
     {
-        
+        LevelPlatform.OnPass += ChangeStateToNormal;
+        CheckPoint.OnCheck += ChangeStateToStop;
     }
 
     void OnDisable()
     {
-        
+        LevelPlatform.OnPass -= ChangeStateToNormal;
+        CheckPoint.OnCheck -= ChangeStateToStop;
     }
 
     void ChangeStateToNormal()
     {
         playerState = PlayerStates.normal;
+        GetComponent<PlayerController>().enabled = true;
+    }
+
+    void ChangeStateToStop()
+    {
+        playerState = PlayerStates.stopped;
+        GetComponent<PlayerController>().enabled = false;
     }
 
     // Update is called once per frame

@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{
+{   
+
     [SerializeField] PlatformPool platformPool;
     [SerializeField] Player playerPrefab;
     [SerializeField] Cinemachine.CinemachineVirtualCamera playerCam;
