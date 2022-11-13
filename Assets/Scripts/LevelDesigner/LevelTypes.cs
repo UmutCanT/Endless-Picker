@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class LevelDesigner : ScriptableObject
+public abstract class LevelTypes : ScriptableObject
 {
     [SerializeField] string description;
     [SerializeField] int requiredCollectablesToPass;

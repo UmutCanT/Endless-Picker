@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "LevelType/BigToSmall")]
-public class BigToSmall : LevelDesigner
+public class BigToSmall : LevelTypes
 {
     public override void Initiliaze()
     {

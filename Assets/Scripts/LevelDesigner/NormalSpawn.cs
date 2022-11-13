@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "LevelType/NormalSpawn")]
-public class NormalSpawn : LevelDesigner
+public class NormalSpawn : LevelTypes
 {
     public override void Initiliaze()
     {

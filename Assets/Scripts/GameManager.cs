@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{   
+{
 
     [SerializeField] PlatformPool platformPool;
     [SerializeField] Player playerPrefab;
@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerStats.Instance.PlayerPart = 0;
         playerSpawnPoint.z = platformPool.SpawnPointZ() - 8f;
         for (int i = 0; i < 3; i++)
         {
+            PlayerStats.Instance.PlayerPart++;
             platformPool.GetLevelPlatform();
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "LevelType/MobileSpawner")]
-public class MobileSpawner : LevelDesigner
+public class MobileSpawner : LevelTypes
 {
     public override void Initiliaze()
     {
