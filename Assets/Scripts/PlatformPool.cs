@@ -30,6 +30,9 @@ public class PlatformPool : MonoBehaviour
     void OnGet(LevelPlatform lPlatform)
     {        
         lPlatform.gameObject.SetActive(true);
+        Debug.Log(PlayerStats.Instance.PlayerLevel);
+        lPlatform.Level = PlayerStats.Instance.PlayerLevel;
+        lPlatform.Part = PlayerStats.Instance.PlayerPart;
         lPlatform.transform.position = new Vector3(0, 0, SpawnPointZ());
         zLastEndPointPos = lPlatform.EndPointZ;
     }
