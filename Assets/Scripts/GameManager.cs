@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        level.GenerateLevel();
-        PlayerStats.Instance.PlayerPart = 0;
+        GenerateLastLevel();
+        level.Part = 0;
         playerSpawnPoint.z = platformPool.SpawnPointZ() - 8f;
         for (int i = 0; i < 3; i++)
         {
-            PlayerStats.Instance.PlayerPart++;
+            level.Part++;
             platformPool.GetLevelPlatform();
         }
     }
@@ -34,6 +34,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    void GenerateLastLevel()
+    {
+        level.GenerateLevel(PlayerStats.Instance.LevelPart1, PlayerStats.Instance.LevelPart2, PlayerStats.Instance.LevelPart3);
+    }
+
+    void GenerateLevel()
+    {
+        level.GenerateLevel();
     }
 
     void SpawnPlayer()

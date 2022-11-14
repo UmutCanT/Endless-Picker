@@ -9,5 +9,7 @@ public abstract class LevelTypes : ScriptableObject
     [SerializeField] int spawnedCollectables;
     [SerializeField] CollectableTypes[] collectableTypes;
 
+    public int RequiredCollectablesToPass { get => requiredCollectablesToPass; }
+
     public abstract void Initiliaze();
 }
