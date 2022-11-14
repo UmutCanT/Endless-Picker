@@ -6,12 +6,12 @@ using UnityEngine.Pool;
 
 public class CollectablePool : MonoBehaviour
 {
-    [SerializeField] Collectable sphere;
-    IObjectPool<Collectable> spherePool;
+    [SerializeField] Collectable collectable;
+    IObjectPool<Collectable> collectablePool;
 
     private void Awake()
     {
-        spherePool = new ObjectPool<Collectable>(
+        collectablePool = new ObjectPool<Collectable>(
             CreateSphere,
             OnGetSphere,
             OnReleaseSphere
@@ -20,9 +20,8 @@ public class CollectablePool : MonoBehaviour
 
     private Collectable CreateSphere()
     {
-        Collectable sphereCol = Instantiate(sphere);
-        sphereCol.CollectableType = CollectableTypes.Sphere;
-        return sphereCol;
+        Collectable col = Instantiate(collectable);
+        return col;
     }
     private void OnGetSphere(Collectable obj)
     {
@@ -36,7 +35,7 @@ public class CollectablePool : MonoBehaviour
 
     public void GetSphere()
     {
-        spherePool.Get();
+        collectablePool.Get();
     }
 
     // Start is called before the first frame update
@@ -59,4 +58,11 @@ public enum CollectableTypes
     Cone,
     Sphere,
     Cylinder
+}
+
+public enum Behaviour
+{
+    Normal,
+    SpawnLittleOnes,
+    Chopper
 }
