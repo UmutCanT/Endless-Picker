@@ -8,6 +8,7 @@ public class PlatformPool : MonoBehaviour
 {
     const float LEVEL_PLATFORM_DIFFERENCE_Z = 10f;
     [SerializeField] LevelPlatform levelPlatformPrefab;
+    [SerializeField] Level level;
     IObjectPool<LevelPlatform> levelPlatformPool;
     float zLastEndPointPos = 0f;
 
