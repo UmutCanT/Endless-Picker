@@ -8,6 +8,7 @@ public class PlatformPool : MonoBehaviour
 {
     const float LEVEL_PLATFORM_DIFFERENCE_Z = 10f;
     [SerializeField] LevelPlatform levelPlatformPrefab;
+    [SerializeField] Level level;
     IObjectPool<LevelPlatform> levelPlatformPool;
     float zLastEndPointPos = 0f;
 
@@ -30,9 +31,10 @@ public class PlatformPool : MonoBehaviour
     void OnGet(LevelPlatform lPlatform)
     {        
         lPlatform.gameObject.SetActive(true);
-        Debug.Log(PlayerStats.Instance.PlayerLevel);
+        Debug.Log(PlayerStats.Instance.PlayerLevel);        
         lPlatform.Level = PlayerStats.Instance.PlayerLevel;
-        lPlatform.Part = PlayerStats.Instance.PlayerPart;
+        lPlatform.Part = level.Part;
+        lPlatform.RequiredColletablesToPass = level.SelectedLevel[lPlatform.Part-1].RequiredCollectablesToPass;
         lPlatform.transform.position = new Vector3(0, 0, SpawnPointZ());
         zLastEndPointPos = lPlatform.EndPointZ;
     }

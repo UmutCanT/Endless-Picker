@@ -42,7 +42,7 @@ public class LevelPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Level: " + level + " Part: " + part);
+        Debug.Log("Level: " + level + " Part: " + part + " ToPass: " + requiredColletablesToPass);
     }
 
     // Update is called once per frame
