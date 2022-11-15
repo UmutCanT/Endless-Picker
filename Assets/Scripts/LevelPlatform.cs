@@ -11,8 +11,10 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject gate;
     [SerializeField] GameObject progressGround;
     [SerializeField] Transform endPoint;
+    [SerializeField] GameObject checkPoint;
 
     int requiredColletablesToPass =  1;
+    int spawnedCollectables = 0;
     int level = 0;
     int part = 0;
     float waitTimeToPass = 2f;
@@ -20,14 +22,14 @@ public class LevelPlatform : MonoBehaviour
 
 
     public int RequiredColletablesToPass { get => requiredColletablesToPass; set => requiredColletablesToPass = value; }
-
     public float EndPointZ { get => endPoint.position.z; }
     public int Level { get => level; set => level = value; }
     public int Part { get => part; set => part = value; }
+    public int SpawnedCollectables { get => spawnedCollectables; set => spawnedCollectables = value; }
 
     public void SetPool(IObjectPool<LevelPlatform> pool)
     {
-        levelPlatformPool = pool;      
+        levelPlatformPool = pool;
     }
 
     public IEnumerator PassGranted()
@@ -36,8 +38,21 @@ public class LevelPlatform : MonoBehaviour
         OnPass();
         gate.SetActive(false);
         progressGround.SetActive(true);
+        checkPoint.SetActive(false);
+
     }
 
+    void ResetPlatform()
+    {
+        gate.SetActive(true);
+        progressGround.SetActive(false);
+        checkPoint.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        ResetPlatform();
+    }
 
     // Start is called before the first frame update
     void Start()

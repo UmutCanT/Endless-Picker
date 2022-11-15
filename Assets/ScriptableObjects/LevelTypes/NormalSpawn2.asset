@@ -15,4 +15,5 @@ MonoBehaviour:
   description: Just spawns selected type of collectables
   requiredCollectablesToPass: 20
   spawnedCollectables: 30
-  collectableTypes: 03000000
+  collectableType: 1
+  scaleMult: 0.18

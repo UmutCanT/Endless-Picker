@@ -9,4 +9,9 @@ public class BigToSmall : LevelTypes
     {
         throw new System.NotImplementedException();
     }
+
+    public override void SpawnFormation()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -9,4 +9,9 @@ public class NormalSpawn : LevelTypes
     {
         throw new System.NotImplementedException();
     }
+
+    public override void SpawnFormation()
+    {
+        throw new System.NotImplementedException();
+    }
 }

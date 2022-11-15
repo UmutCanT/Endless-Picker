@@ -7,6 +7,10 @@ public class MobileSpawner : LevelTypes
 {
     public override void Initiliaze()
     {
+    }
+
+    public override void SpawnFormation()
+    {
         throw new System.NotImplementedException();
     }
 }
