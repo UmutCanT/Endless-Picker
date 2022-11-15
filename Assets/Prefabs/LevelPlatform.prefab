@@ -241,6 +241,7 @@ MonoBehaviour:
   gate: {fileID: 2871890426112728335}
   progressGround: {fileID: 289930033}
   endPoint: {fileID: 1680026993}
+  checkPoint: {fileID: 391062283}
 --- !u!1 &2871890424469493133
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject gate;
     [SerializeField] GameObject progressGround;
     [SerializeField] Transform endPoint;
+    [SerializeField] GameObject checkPoint;
 
     int requiredColletablesToPass =  1;
     int spawnedCollectables = 0;
@@ -37,6 +38,20 @@ public class LevelPlatform : MonoBehaviour
         OnPass();
         gate.SetActive(false);
         progressGround.SetActive(true);
+        checkPoint.SetActive(false);
+
+    }
+
+    void ResetPlatform()
+    {
+        gate.SetActive(true);
+        progressGround.SetActive(false);
+        checkPoint.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        ResetPlatform();
     }
 
     // Start is called before the first frame update

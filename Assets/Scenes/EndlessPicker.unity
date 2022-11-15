@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPool: {fileID: 782111522}
-  playerPrefab: {fileID: 4118596979398292904, guid: dc7c26882051a7446b4f3a0c0e6e53ae,
+  playerPrefab: {fileID: 2232400125658135678, guid: dc7c26882051a7446b4f3a0c0e6e53ae,
     type: 3}
   playerCam: {fileID: 813135711}
   level: {fileID: 11400000, guid: e3ef62c495d9b924fa9aca843ee52068, type: 2}
