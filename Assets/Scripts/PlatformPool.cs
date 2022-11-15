@@ -9,6 +9,7 @@ public class PlatformPool : MonoBehaviour
     const float LEVEL_PLATFORM_DIFFERENCE_Z = 10f;
     [SerializeField] LevelPlatform levelPlatformPrefab;
     [SerializeField] Level level;
+    [SerializeField] CollectablePool collectablePool;
     IObjectPool<LevelPlatform> levelPlatformPool;
     float zLastEndPointPos = 0f;
 
@@ -34,9 +35,19 @@ public class PlatformPool : MonoBehaviour
         Debug.Log(PlayerStats.Instance.PlayerLevel);        
         lPlatform.Level = PlayerStats.Instance.PlayerLevel;
         lPlatform.Part = level.Part;
-        lPlatform.RequiredColletablesToPass = level.SelectedLevel[lPlatform.Part-1].RequiredCollectablesToPass;
+        lPlatform.RequiredColletablesToPass = level.SelectedLevel[level.Part-1].RequiredCollectablesToPass;       
         lPlatform.transform.position = new Vector3(0, 0, SpawnPointZ());
         zLastEndPointPos = lPlatform.EndPointZ;
+        SpawnCollectables(level.SelectedLevel[level.Part - 1].SpawnedCollectables);
+    }
+
+    void SpawnCollectables(int numberOfCollectables)
+    {
+        for (int i = 0; i < numberOfCollectables; i++)
+        {
+            level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(0, 2, zLastEndPointPos-15f + i);
+            collectablePool.GetCollectable();
+        }     
     }
 
     void OnRelease(LevelPlatform lPlatform)

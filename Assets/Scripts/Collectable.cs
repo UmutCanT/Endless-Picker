@@ -10,14 +10,10 @@ public class Collectable : MonoBehaviour
     [SerializeField] GameObject cylinder;
     //[SerializeField] GameObject cone;
 
-    CollectableTypes collectableType;
-
-    public CollectableTypes CollectableType { get => collectableType; set => collectableType = value; }
-
-    void OnSpawn(float scale, float posX, float posY, float posZ)
+    public void OnSpawn(float scale, Vector3 pos)
     {
         transform.localScale = Vector3.one * scale;
-        transform.position = new Vector3(posX, posY, posZ);
+        transform.position = pos;
     }
 
     void OnEnable()
@@ -33,7 +29,7 @@ public class Collectable : MonoBehaviour
         sphere.SetActive(false);
     }
 
-    public void CollectableTypeChanger()
+    public void CollectableTypeChanger(CollectableTypes collectableType)
     {
         switch (collectableType)
         {

@@ -7,33 +7,41 @@ using UnityEngine.Pool;
 public class CollectablePool : MonoBehaviour
 {
     [SerializeField] Collectable collectable;
+    [SerializeField] Level level;
     IObjectPool<Collectable> collectablePool;
 
     private void Awake()
     {
         collectablePool = new ObjectPool<Collectable>(
-            CreateSphere,
-            OnGetSphere,
-            OnReleaseSphere
+            CreateCollectable,
+            OnGet,
+            OnRelease
             );
     }
 
-    private Collectable CreateSphere()
+    private Collectable CreateCollectable()
     {
         Collectable col = Instantiate(collectable);
         return col;
     }
-    private void OnGetSphere(Collectable obj)
+    private void OnGet(Collectable col)
+    {
+        col.gameObject.SetActive(true);
+        col.CollectableTypeChanger(level.SelectedLevel[level.Part-1].CollectableType);
+        col.OnSpawn(level.SelectedLevel[level.Part - 1].ScaleMult, level.SelectedLevel[level.Part-1].SpawnPos);
+    }
+
+    public void CollectableOnSpawn()
+    {
+
+    }
+
+    private void OnRelease(Collectable obj)
     {
         throw new NotImplementedException();
     }
 
-    private void OnReleaseSphere(Collectable obj)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void GetSphere()
+    public void GetCollectable()
     {
         collectablePool.Get();
     }
