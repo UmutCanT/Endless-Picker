@@ -9,6 +9,7 @@ TagManager:
   - CollectablePool
   - CheckPoint
   - PlayerForce
+  - SpawnArea
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - SpawnArea
+  - Collectable
   - 
   - 
   - 

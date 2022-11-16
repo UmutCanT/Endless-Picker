@@ -12,6 +12,7 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject progressGround;
     [SerializeField] Transform endPoint;
     [SerializeField] GameObject checkPoint;
+    [SerializeField] BoxCollider spawnBox;
 
     int requiredColletablesToPass =  1;
     int spawnedCollectables = 0;
@@ -25,6 +26,7 @@ public class LevelPlatform : MonoBehaviour
     public int Level { get => level; set => level = value; }
     public int Part { get => part; set => part = value; }
     public int SpawnedCollectables { get => spawnedCollectables; set => spawnedCollectables = value; }
+    public BoxCollider SpawnBox { get => spawnBox; set => spawnBox = value; }
 
     public void SetPool(IObjectPool<LevelPlatform> pool)
     {

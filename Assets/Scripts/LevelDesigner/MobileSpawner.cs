@@ -9,7 +9,7 @@ public class MobileSpawner : LevelTypes
     {
     }
 
-    public override void SpawnFormation()
+    public override Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder)
     {
         throw new System.NotImplementedException();
     }

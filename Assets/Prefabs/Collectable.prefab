@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1603306617359395129}
   - component: {fileID: 1603306617359395128}
   - component: {fileID: 5996525563373902065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collectable
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 1603306618231039459}
   - component: {fileID: 1603306618231039456}
   - component: {fileID: 1603306618231039457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1603306618320458939}
   - component: {fileID: 1603306618320458936}
   - component: {fileID: 1603306618320458937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1603306618423423628}
   - component: {fileID: 1603306618423423629}
   - component: {fileID: 1603306618423423618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1603306618645198125}
   - component: {fileID: 1603306618645198114}
   - component: {fileID: 1603306618645198115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Collectable
   m_Icon: {fileID: 0}

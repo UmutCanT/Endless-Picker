@@ -16,4 +16,4 @@ MonoBehaviour:
   requiredCollectablesToPass: 20
   spawnedCollectables: 30
   collectableType: 1
-  scaleMult: 0.18
+  scaleMult: 0.2

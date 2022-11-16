@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Just spawns selected type of collectables
   requiredCollectablesToPass: 2
-  spawnedCollectables: 5
+  spawnedCollectables: 20
   collectableType: 3
-  scaleMult: 0.18
+  scaleMult: 0.2

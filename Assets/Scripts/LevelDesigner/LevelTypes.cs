@@ -11,8 +11,6 @@ public abstract class LevelTypes : ScriptableObject
     [SerializeField] float scaleMult;
     BoxCollider spawnArea;
     Vector3 spawnPos;
-    delegate void DesiredFormation(int collectableCount, BoxCollider box);
-    DesiredFormation formation;
 
     public int RequiredCollectablesToPass { get => requiredCollectablesToPass; }
     public int SpawnedCollectables { get => spawnedCollectables; }
@@ -23,5 +21,5 @@ public abstract class LevelTypes : ScriptableObject
 
     public abstract void Initiliaze();
 
-    public abstract void SpawnFormation();
+    public abstract Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder);
 }
