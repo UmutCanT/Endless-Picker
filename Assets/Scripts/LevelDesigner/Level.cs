@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Level")]
 public class Level : ScriptableObject
 {
-    [SerializeField] int level;
+    [SerializeField] int currentLevel;
     [SerializeField] int part;
     [SerializeField] LevelTypes[] levelPart1;
     [SerializeField] LevelTypes[] levelPart2;
@@ -16,6 +16,7 @@ public class Level : ScriptableObject
     public LevelTypes[] SelectedLevel { get => selectedLevel; set => selectedLevel = value; }
     public int[] LastLevel { get => lastLevel; set => lastLevel = value; }
     public int Part { get => part; set => part = value; }
+    public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
 
     int Part1 => Random.Range(0, levelPart1.Length);
     int Part2 => Random.Range(0, levelPart2.Length);

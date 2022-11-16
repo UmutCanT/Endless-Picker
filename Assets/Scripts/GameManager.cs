@@ -24,18 +24,23 @@ public class GameManager : MonoBehaviour
             platformPool.GetLevelPlatform();
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnPlayer();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
         
     }
-    
+
+    void OnDisable()
+    {
+        
+    }
+
     void GenerateLastLevel()
     {
         level.GenerateLevel(PlayerStats.Instance.LevelPart1, PlayerStats.Instance.LevelPart2, PlayerStats.Instance.LevelPart3);

@@ -8,15 +8,22 @@ public class PlatformPool : MonoBehaviour
 {
     const float LEVEL_PLATFORM_DIFFERENCE_Z = 10f;
     [SerializeField] LevelPlatform levelPlatformPrefab;
+    [SerializeField] GameObject rampPlatformPrefab;
+    [SerializeField] GameObject bonusPlatformPrefab;
     [SerializeField] Level level;
     [SerializeField] CollectablePool collectablePool;
     IObjectPool<LevelPlatform> levelPlatformPool;
     float zLastEndPointPos = 0f;
+    GameObject rampPlatform;
+    GameObject bonusPlatform;
+
     Vector3 spawnBoxPos;
     Vector3 spawnBoxMax;
 
     void Awake()
     {
+        SpawnBonusArea();
+
         levelPlatformPool = new ObjectPool<LevelPlatform>(
             CreateLevelPlatform,
             OnGet,
@@ -34,9 +41,9 @@ public class PlatformPool : MonoBehaviour
     }
 
     void OnGet(LevelPlatform lPlatform)
-    {        
-        lPlatform.gameObject.SetActive(true);
-        Debug.Log(PlayerStats.Instance.PlayerLevel);        
+    {
+        ActivateBonusPlatform();
+        lPlatform.gameObject.SetActive(true);       
         lPlatform.Level = PlayerStats.Instance.PlayerLevel;
         lPlatform.Part = level.Part;
         lPlatform.RequiredColletablesToPass = level.SelectedLevel[level.Part-1].RequiredCollectablesToPass;       
@@ -44,6 +51,23 @@ public class PlatformPool : MonoBehaviour
         spawnBoxPos = lPlatform.SpawnBox.transform.position;
         zLastEndPointPos = lPlatform.EndPointZ;
         SpawnCollectables(level.SelectedLevel[level.Part - 1].SpawnedCollectables);
+    }
+
+    void ActivateBonusPlatform()
+    {
+        if (level.Part == 1)
+        {
+            bonusPlatform.SetActive(true);
+            bonusPlatform.transform.position = Vector3.forward * (zLastEndPointPos - 15f);
+        }
+    }
+
+    void SpawnBonusArea()
+    {
+        rampPlatform = Instantiate(rampPlatformPrefab);
+        rampPlatform.SetActive(false);
+        bonusPlatform = Instantiate(bonusPlatformPrefab);
+        bonusPlatform.SetActive(false);
     }
 
     void SpawnCollectables(int numberOfCollectables)

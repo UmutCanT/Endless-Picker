@@ -10,6 +10,7 @@ TagManager:
   - CheckPoint
   - PlayerForce
   - SpawnArea
+  - RampStart
   layers:
   - Default
   - TransparentFX
