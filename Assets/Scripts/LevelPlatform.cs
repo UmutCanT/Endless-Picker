@@ -17,7 +17,6 @@ public class LevelPlatform : MonoBehaviour
     int spawnedCollectables = 0;
     int level = 0;
     int part = 0;
-    float waitTimeToPass = 2f;
     IObjectPool<LevelPlatform> levelPlatformPool;
 
 
@@ -32,14 +31,12 @@ public class LevelPlatform : MonoBehaviour
         levelPlatformPool = pool;
     }
 
-    public IEnumerator PassGranted()
-    {
-        yield return new WaitForSeconds(waitTimeToPass);
+    public void PassGranted()
+    {        
         OnPass();
         gate.SetActive(false);
         progressGround.SetActive(true);
         checkPoint.SetActive(false);
-
     }
 
     void ResetPlatform()

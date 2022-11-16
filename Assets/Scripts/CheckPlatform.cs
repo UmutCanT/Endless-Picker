@@ -6,13 +6,18 @@ public class CheckPlatform : MonoBehaviour
 {
     [SerializeField] LevelPlatform levelPlatform;
     int collectableCount;
+    bool isCheking = false;
+    float checkTime = 2.5f;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Collectable"))
         {
+            if (!isCheking)
+            {
+                StartCoroutine(CheckCollectableCount());
+            }
             collectableCount++;
-            CheckCollectable();
         }
     }
     void OnEnable()
@@ -20,12 +25,15 @@ public class CheckPlatform : MonoBehaviour
         collectableCount = 0;
     }
 
-    void CheckCollectable()
+    IEnumerator CheckCollectableCount()
     {
+        isCheking = true;
+        yield return new WaitForSeconds(checkTime);
         if (collectableCount >= levelPlatform.RequiredColletablesToPass)
         {
-            StartCoroutine(levelPlatform.PassGranted());
+            levelPlatform.PassGranted();
         }
+        isCheking = false;
     }
 
     // Start is called before the first frame update
