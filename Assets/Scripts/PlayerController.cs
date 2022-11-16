@@ -61,9 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
             Vector3 move = new Vector3(pos.x * dragSpeed, 0, 0);
-            transform.Translate(move, Space.World);
-
-           
+            transform.Translate(move, Space.World);           
         }       
     }
 

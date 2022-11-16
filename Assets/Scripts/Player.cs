@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     PlayerStates playerState;
+    [SerializeField] GameObject forceArea;
 
     public PlayerStates PlayerState { get => playerState; set => playerState = value; }
 
@@ -18,16 +19,19 @@ public class Player : MonoBehaviour
     {
         LevelPlatform.OnPass += ChangeStateToNormal;
         CheckPoint.OnCheck += ChangeStateToStop;
+        CheckPoint.OnCheck += ForceActivator;
     }
 
     void OnDisable()
     {
         LevelPlatform.OnPass -= ChangeStateToNormal;
         CheckPoint.OnCheck -= ChangeStateToStop;
+        CheckPoint.OnCheck -= ForceActivator;
     }
 
     void ChangeStateToNormal()
     {
+        forceArea.SetActive(false);
         playerState = PlayerStates.normal;
         GetComponent<PlayerController>().enabled = true;
     }
@@ -36,6 +40,11 @@ public class Player : MonoBehaviour
     {
         playerState = PlayerStates.stopped;
         GetComponent<PlayerController>().enabled = false;
+    }
+
+    void ForceActivator()
+    {
+        forceArea.SetActive(true);
     }
 
     // Update is called once per frame

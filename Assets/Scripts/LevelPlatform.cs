@@ -12,12 +12,12 @@ public class LevelPlatform : MonoBehaviour
     [SerializeField] GameObject progressGround;
     [SerializeField] Transform endPoint;
     [SerializeField] GameObject checkPoint;
+    [SerializeField] BoxCollider spawnBox;
 
     int requiredColletablesToPass =  1;
     int spawnedCollectables = 0;
     int level = 0;
     int part = 0;
-    float waitTimeToPass = 2f;
     IObjectPool<LevelPlatform> levelPlatformPool;
 
 
@@ -26,20 +26,19 @@ public class LevelPlatform : MonoBehaviour
     public int Level { get => level; set => level = value; }
     public int Part { get => part; set => part = value; }
     public int SpawnedCollectables { get => spawnedCollectables; set => spawnedCollectables = value; }
+    public BoxCollider SpawnBox { get => spawnBox; set => spawnBox = value; }
 
     public void SetPool(IObjectPool<LevelPlatform> pool)
     {
         levelPlatformPool = pool;
     }
 
-    public IEnumerator PassGranted()
-    {
-        yield return new WaitForSeconds(waitTimeToPass);
+    public void PassGranted()
+    {        
         OnPass();
         gate.SetActive(false);
         progressGround.SetActive(true);
         checkPoint.SetActive(false);
-
     }
 
     void ResetPlatform()

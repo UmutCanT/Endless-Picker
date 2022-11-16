@@ -10,7 +10,7 @@ public class BigToSmall : LevelTypes
         throw new System.NotImplementedException();
     }
 
-    public override void SpawnFormation()
+    public override Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder)
     {
         throw new System.NotImplementedException();
     }
