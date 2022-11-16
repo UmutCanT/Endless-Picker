@@ -8,6 +8,8 @@ public class Collectable : MonoBehaviour
     [SerializeField] GameObject sphere;
     [SerializeField] GameObject capsule;
     [SerializeField] GameObject cylinder;
+    [SerializeField] Rigidbody rb;
+    const float forceMult = 0.4f;
     //[SerializeField] GameObject cone;
 
     public void OnSpawn(float scale, Vector3 pos)
@@ -27,6 +29,13 @@ public class Collectable : MonoBehaviour
         cylinder.SetActive(false);
         capsule.SetActive(false);
         sphere.SetActive(false);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerForce"))
+        {
+            rb.AddForce(Vector3.forward * forceMult, ForceMode.Impulse);
+        }
     }
 
     public void CollectableTypeChanger(CollectableTypes collectableType)

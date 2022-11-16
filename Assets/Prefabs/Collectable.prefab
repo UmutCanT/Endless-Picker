@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603306617359395129}
   - component: {fileID: 1603306617359395128}
+  - component: {fileID: 5996525563373902065}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Collectable
@@ -52,6 +53,23 @@ MonoBehaviour:
   sphere: {fileID: 1603306618320458943}
   capsule: {fileID: 1603306618423423616}
   cylinder: {fileID: 1603306618231039463}
+  rb: {fileID: 5996525563373902065}
+--- !u!54 &5996525563373902065
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603306617359395134}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &1603306618231039463
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +82,6 @@ GameObject:
   - component: {fileID: 1603306618231039459}
   - component: {fileID: 1603306618231039456}
   - component: {fileID: 1603306618231039457}
-  - component: {fileID: 1185247070260108343}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Collectable
@@ -151,22 +168,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &1185247070260108343
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603306618231039463}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &1603306618320458943
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,6 @@ GameObject:
   - component: {fileID: 1603306618320458939}
   - component: {fileID: 1603306618320458936}
   - component: {fileID: 1603306618320458937}
-  - component: {fileID: 2873700202583197648}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Collectable
@@ -265,22 +265,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2873700202583197648
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603306618320458943}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &1603306618423423616
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +277,6 @@ GameObject:
   - component: {fileID: 1603306618423423628}
   - component: {fileID: 1603306618423423629}
   - component: {fileID: 1603306618423423618}
-  - component: {fileID: 3732638675042303706}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Collectable
@@ -380,22 +363,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3732638675042303706
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603306618423423616}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &1603306618645198113
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +375,6 @@ GameObject:
   - component: {fileID: 1603306618645198125}
   - component: {fileID: 1603306618645198114}
   - component: {fileID: 1603306618645198115}
-  - component: {fileID: 62136493410995129}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Collectable
@@ -494,19 +460,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &62136493410995129
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603306618645198113}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
