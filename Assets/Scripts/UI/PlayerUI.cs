@@ -21,17 +21,20 @@ public class PlayerUI : MonoBehaviour
 
     void OnEnable()
     {
-        
+        GameManager.OnPartUpdate += PartUiUpdate;
+        GameManager.OnLevelUpdate += LevelUiUpdate;
     }
 
     void OnDisable()
     {
-        
+        GameManager.OnPartUpdate -= PartUiUpdate;
+        GameManager.OnLevelUpdate -= LevelUiUpdate;
     }
-    
+
     void BonusJumpUI()
     {
-        levelText.gameObject.SetActive(false);
+        playerNormalUI.SetActive(false);
+        playerBonusUI.SetActive(true);
     }
 
     void LevelUiUpdate()
@@ -41,6 +44,6 @@ public class PlayerUI : MonoBehaviour
 
     void PartUiUpdate()
     {
-        partText.text = string.Format("Part: {0}", level.Part);
+        partText.text = string.Format("Part: {0}", level.CurrentPart);
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Level")]
 public class Level : ScriptableObject
 {
-    [SerializeField] int currentLevel;
     [SerializeField] int part;
     [SerializeField] LevelTypes[] levelPart1;
     [SerializeField] LevelTypes[] levelPart2;
     [SerializeField] LevelTypes[] levelPart3;
     LevelTypes[] selectedLevel = new LevelTypes[3];
     int[] lastLevel = new int[3];
+    int currentLevel;
     int currentPart;
 
     public LevelTypes[] SelectedLevel { get => selectedLevel; set => selectedLevel = value; }

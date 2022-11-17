@@ -16,15 +16,11 @@ public class LevelPlatform : MonoBehaviour
 
     int requiredColletablesToPass =  1;
     int spawnedCollectables = 0;
-    int level = 0;
-    int part = 0;
     IObjectPool<LevelPlatform> levelPlatformPool;
 
 
     public int RequiredColletablesToPass { get => requiredColletablesToPass; set => requiredColletablesToPass = value; }
     public float EndPointZ { get => endPoint.position.z; }
-    public int Level { get => level; set => level = value; }
-    public int Part { get => part; set => part = value; }
     public int SpawnedCollectables { get => spawnedCollectables; set => spawnedCollectables = value; }
     public BoxCollider SpawnBox { get => spawnBox; set => spawnBox = value; }
 
@@ -56,7 +52,7 @@ public class LevelPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Level: " + level + " Part: " + part + " ToPass: " + requiredColletablesToPass);
+       
     }
 
     // Update is called once per frame

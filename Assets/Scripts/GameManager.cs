@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static event Action OnPartUpdate;
+    public static event Action OnLevelUpdate;
 
     [SerializeField] PlatformPool platformPool;
     [SerializeField] Player playerPrefab;
@@ -31,28 +33,36 @@ public class GameManager : MonoBehaviour
     {
         NextLevelPoint.OnLevelPass += GenerateLevel;
         RampPoint.OnJump += MoveRamp;
+        LevelPlatform.OnPass += PartPassed;
     }
 
     void OnDisable()
     {
         NextLevelPoint.OnLevelPass -= GenerateLevel;
         RampPoint.OnJump += MoveRamp;
+        LevelPlatform.OnPass -= PartPassed;
     }
 
     void GenerateLastLevel()
     {
+        level.CurrentLevel = PlayerStats.Instance.PlayerLevel;
+        OnLevelUpdate();
         level.GenerateLevel(PlayerStats.Instance.LevelPart1, PlayerStats.Instance.LevelPart2, PlayerStats.Instance.LevelPart3);
     }
 
     void GenerateLevel()
     {
         level.GenerateLevel();
+        level.CurrentLevel++;
+        OnLevelUpdate();
         GeneratePlatform();
     }
 
     void GeneratePlatform()
     {
         level.Part = 0;
+        level.CurrentPart = 0;
+        OnPartUpdate();
         for (int i = 0; i < 3; i++)
         {
             level.Part++;
@@ -70,5 +80,11 @@ public class GameManager : MonoBehaviour
         player = Instantiate(playerPrefab, playerSpawnPoint, playerPrefab.transform.rotation);
         playerCam.Follow = player.transform;
         playerCam.LookAt = player.transform;
+    }
+
+    void PartPassed()
+    {
+        level.CurrentPart++;
+        OnPartUpdate();
     }
 }

@@ -7,7 +7,7 @@ public class CheckPlatform : MonoBehaviour
     [SerializeField] LevelPlatform levelPlatform;
     int collectableCount;
     bool isCheking = false;
-    float checkTime = 2.5f;
+    float checkTime = 2f;
 
     void OnTriggerEnter(Collider other)
     {

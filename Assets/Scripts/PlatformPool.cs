@@ -43,9 +43,7 @@ public class PlatformPool : MonoBehaviour
     void OnGet(LevelPlatform lPlatform)
     {
         ActivateBonusPlatform();
-        lPlatform.gameObject.SetActive(true);       
-        lPlatform.Level = PlayerStats.Instance.PlayerLevel;
-        lPlatform.Part = level.Part;
+        lPlatform.gameObject.SetActive(true);
         lPlatform.RequiredColletablesToPass = level.SelectedLevel[level.Part-1].RequiredCollectablesToPass;       
         lPlatform.transform.position = Vector3.forward * SpawnPointZ();
         spawnBoxPos = lPlatform.SpawnBox.transform.position;

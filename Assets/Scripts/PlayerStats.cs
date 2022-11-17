@@ -32,12 +32,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (!PlayerPrefs.HasKey(levelKey))
-        {
-            PlayerPrefs.SetInt(levelKey, 1);
-            playerLevel = 1;
-        }
-        playerLevel = PlayerPrefs.GetInt(levelKey);
+        playerLevel = PlayerPrefs.GetInt(levelKey, 1);
         levelPart1 = PlayerPrefs.GetInt(levelpartKey1, 0);
         levelPart2 = PlayerPrefs.GetInt(levelpartKey2, 0);
         levelPart3 = PlayerPrefs.GetInt(levelpartKey3, 0);
