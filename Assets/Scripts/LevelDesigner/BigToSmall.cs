@@ -5,12 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LevelType/BigToSmall")]
 public class BigToSmall : LevelTypes
 {
-    public override void Initiliaze()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder)
+    public override float SpawnFormation(Vector3 pos, int n)
     {
         throw new System.NotImplementedException();
     }

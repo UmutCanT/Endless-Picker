@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86b00e605bd13454aa57d681d6fd049a, type: 3}
-  m_Name: NormalSpawn1
+  m_Name: NormalSpawn2.2
   m_EditorClassIdentifier: 
-  description: Just spawns selected type of collectables
-  requiredCollectablesToPass: 2
-  spawnedCollectables: 5
+  description: part2 -2
+  requiredCollectablesToPass: 7
+  spawnedCollectables: 7
   collectableType: 3
-  scaleMult: 0.2
+  scaleMult: 0.25

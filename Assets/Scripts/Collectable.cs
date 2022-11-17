@@ -9,18 +9,13 @@ public class Collectable : MonoBehaviour
     [SerializeField] GameObject capsule;
     [SerializeField] GameObject cylinder;
     [SerializeField] Rigidbody rb;
-    const float forceMult = 0.45f;
+    const float forceMult = 0.7f;
     //[SerializeField] GameObject cone;
 
     public void OnSpawn(float scale, Vector3 pos)
     {
         transform.localScale = Vector3.one * scale;
         transform.position = pos;
-    }
-
-    void OnEnable()
-    {
-        
     }
 
     void OnDisable()

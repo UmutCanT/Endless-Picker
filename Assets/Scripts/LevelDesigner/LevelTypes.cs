@@ -19,7 +19,5 @@ public abstract class LevelTypes : ScriptableObject
     public BoxCollider SpawnArea { get => spawnArea; set => spawnArea = value; }
     public Vector3 SpawnPos { get => spawnPos; set => spawnPos = value; }
 
-    public abstract void Initiliaze();
-
-    public abstract Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder);
+    public abstract float SpawnFormation(Vector3 pos, int n);
 }

@@ -5,12 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LevelType/MobileSpawner")]
 public class MobileSpawner : LevelTypes
 {
-    public override void Initiliaze()
+    public override float SpawnFormation(Vector3 pos, int n)
     {
-    }
-
-    public override Vector3 SpawnFormation(BoxCollider boxCollider, int totalCollectable, int collectableOrder)
-    {
-        throw new System.NotImplementedException();
+        return pos.z - 4f + n * 0.1f;
     }
 }

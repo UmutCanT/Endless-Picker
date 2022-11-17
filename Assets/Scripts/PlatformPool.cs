@@ -73,11 +73,11 @@ public class PlatformPool : MonoBehaviour
     {
         for (int i = 0; i < numberOfCollectables; i++)
         {
-            if (i <= numberOfCollectables)
+            if (i <= numberOfCollectables/ 2)
             {
-                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(-1f, 1.5f, pos.z -8.5f + i);
+                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(-0.5f, 1.5f, level.SelectedLevel[level.Part-1].SpawnFormation(pos, i));
             }else
-                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(1f, 1.5f, pos.z - 8.5f + i);
+                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(0.5f, 1.5f, level.SelectedLevel[level.Part - 1].SpawnFormation(pos, i));
             collectablePool.GetCollectable();
         }     
     }

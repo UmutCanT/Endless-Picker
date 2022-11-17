@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NormalSpawn2
   m_EditorClassIdentifier: 
   description: Just spawns selected type of collectables
-  requiredCollectablesToPass: 20
-  spawnedCollectables: 30
+  requiredCollectablesToPass: 5
+  spawnedCollectables: 10
   collectableType: 1
   scaleMult: 0.2

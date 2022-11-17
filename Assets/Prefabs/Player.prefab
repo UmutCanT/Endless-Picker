@@ -5573,7 +5573,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2232400125658135663}
   serializedVersion: 2
-  m_Mass: 20
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -5592,7 +5592,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.621444, y: 3, z: 2.295734}
+  m_Size: {x: 0.621444, y: 3, z: 2.6}
   m_Center: {x: 2.5892832, y: 1, z: 0.85213476}
 --- !u!65 &413126198882853108
 BoxCollider:
@@ -5605,7 +5605,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.621444, y: 3, z: 2.295734}
+  m_Size: {x: 0.621444, y: 3, z: 2.6}
   m_Center: {x: -2.589283, y: 1, z: 0.85213476}
 --- !u!65 &5872041671223728914
 BoxCollider:
@@ -5618,7 +5618,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 3, z: 1.2227815}
+  m_Size: {x: 0.6, y: 3, z: 1.5}
   m_Center: {x: 2.1120949, y: 1, z: -0.3262636}
 --- !u!65 &330273594227821249
 BoxCollider:
@@ -5631,7 +5631,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 3, z: 1.2227815}
+  m_Size: {x: 0.6, y: 3, z: 1.5}
   m_Center: {x: -2.112095, y: 1, z: -0.3262636}
 --- !u!65 &8542087425864731418
 BoxCollider:
@@ -5644,7 +5644,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.585112, y: 3, z: 0.83946913}
+  m_Size: {x: 0.585112, y: 3, z: 1}
   m_Center: {x: -1.7619485, y: 1, z: -1.0586287}
 --- !u!65 &7527712929054760080
 BoxCollider:
@@ -5657,7 +5657,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.585112, y: 3, z: 0.83946913}
+  m_Size: {x: 0.585112, y: 3, z: 1}
   m_Center: {x: 1.761948, y: 1, z: -1.0586287}
 --- !u!65 &423479896479726638
 BoxCollider:
@@ -5670,7 +5670,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2792907, y: 3, z: 0.9252405}
+  m_Size: {x: 3.2792907, y: 3, z: 1.2}
   m_Center: {x: -0.04345715, y: 1, z: -1.5373808}
 --- !u!1 &5331441385358362628
 GameObject:
