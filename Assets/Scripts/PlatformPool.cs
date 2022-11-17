@@ -18,9 +18,7 @@ public class PlatformPool : MonoBehaviour
     GameObject bonusPlatform;
 
     void Awake()
-    {
-        SpawnBonusArea();
-
+    {     
         levelPlatformPool = new ObjectPool<LevelPlatform>(
             CreateLevelPlatform,
             OnGet,
@@ -101,12 +99,7 @@ public class PlatformPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnBonusArea();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
