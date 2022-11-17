@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static event Action OnChangeToNormal;
+
     PlayerStates playerState;
     [SerializeField] GameObject forceArea;
 
@@ -18,19 +21,24 @@ public class Player : MonoBehaviour
     void OnEnable()
     {
         LevelPlatform.OnPass += ChangeStateToNormal;
+        LevelPlatform.OnFail += ChangeStateToStop;
         CheckPoint.OnCheck += ChangeStateToStop;
         CheckPoint.OnCheck += ForceActivator;
+        BonusCheck.OnLevelComplete += ChangeStateToStop;
     }
 
     void OnDisable()
     {
         LevelPlatform.OnPass -= ChangeStateToNormal;
+        LevelPlatform.OnFail -= ChangeStateToStop;
         CheckPoint.OnCheck -= ChangeStateToStop;
         CheckPoint.OnCheck -= ForceActivator;
+        BonusCheck.OnLevelComplete -= ChangeStateToStop;
     }
 
-    void ChangeStateToNormal()
+    public void ChangeStateToNormal()
     {
+        OnChangeToNormal();
         forceArea.SetActive(false);
         playerState = PlayerStates.normal;
         GetComponent<PlayerController>().enabled = true;
@@ -39,6 +47,7 @@ public class Player : MonoBehaviour
     void ChangeStateToStop()
     {
         playerState = PlayerStates.stopped;
+        GetComponent<PlayerController>().CanDrag = false;
         GetComponent<PlayerController>().enabled = false;
     }
 

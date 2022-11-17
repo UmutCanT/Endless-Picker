@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPoint : MonoBehaviour
+public class BonusCheck : MonoBehaviour
 {
-    public static event Action OnCheck;
+    public static event Action OnLevelComplete;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            OnCheck();
+            OnLevelComplete();
         }
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.Pool;
 public class LevelPlatform : MonoBehaviour
 {
     public static event Action OnPass;
+    public static event Action OnFail;
 
     [SerializeField] GameObject gate;
     [SerializeField] GameObject progressGround;
@@ -35,6 +36,11 @@ public class LevelPlatform : MonoBehaviour
         gate.SetActive(false);
         progressGround.SetActive(true);
         checkPoint.SetActive(false);
+    }
+
+    public void PassDenied()
+    {
+        OnFail();
     }
 
     void ResetPlatform()

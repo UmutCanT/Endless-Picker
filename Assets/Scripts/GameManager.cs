@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
         LevelPlatform.OnPass -= PartPassed;
     }
 
+    public void LevelCompleted()
+    {
+        player.transform.position = Vector3.forward * (platformPool.SpawnPointZ() - 8f);
+    }
+
     void GenerateLastLevel()
     {
         level.CurrentLevel = PlayerStats.Instance.PlayerLevel;

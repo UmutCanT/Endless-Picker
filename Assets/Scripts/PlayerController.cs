@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] float speed = 5;
-    [SerializeField] float dragSpeed = 2;
+    float speed = 5f;
+    float dragSpeed = 0.15f;
     private Vector3 dragOrigin;
     bool canDrag;
     Rigidbody rb;
+
+    public bool CanDrag { get => canDrag; set => canDrag = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            player.PlayerState = PlayerStates.normal;
+            player.ChangeStateToNormal();
             canDrag = true;
             dragOrigin = Input.mousePosition;
         }
@@ -43,12 +45,9 @@ public class PlayerController : MonoBehaviour
         }
         
         if(player.PlayerState == PlayerStates.bonusRampJump)
-        {
-            //jumping speed
+        {           
         }
     }
-
-    
 
     Vector3 MovementZ()
     {
@@ -67,6 +66,6 @@ public class PlayerController : MonoBehaviour
 
     void RampingUpSpeed()
     {
-
+        speed = 10;
     }
 }

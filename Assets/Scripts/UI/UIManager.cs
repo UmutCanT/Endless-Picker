@@ -14,6 +14,31 @@ public class UIManager : MonoBehaviour
         HideAllPanels();
     }
 
+    void Start()
+    {
+        ShowOnStart();
+    }
+
+    private void OnEnable()
+    {
+        BonusCheck.OnLevelComplete += ShowLevelCompleteScreen;
+        LevelPlatform.OnFail += ShowFailScreen;
+        Player.OnChangeToNormal += HideAllPanels;
+    }
+
+    private void OnMouseDown()
+    {
+        HideAllPanels();
+    }
+
+    private void OnDisable()
+    {
+        BonusCheck.OnLevelComplete -= ShowLevelCompleteScreen;
+        LevelPlatform.OnFail -= ShowFailScreen;
+        Player.OnChangeToNormal -= HideAllPanels;
+
+    }
+
     void ShowOnStart()
     {
         startScreen.SetActive(true);
@@ -25,12 +50,12 @@ public class UIManager : MonoBehaviour
         levelFailedPanel.SetActive(true);
     }
 
-    void ShowLevelCompleteSsreen()
+    void ShowLevelCompleteScreen()
     {
         levelCompletePanel.SetActive(true);
     }
 
-    void ShowInBetweenLevels()
+    public void ShowInBetweenLevels()
     {
         startScreen.SetActive(true);
         title.SetActive(false);
