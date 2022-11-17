@@ -9,21 +9,23 @@ public class PlayerController : MonoBehaviour
     float dragSpeed = 0.15f;
     private Vector3 dragOrigin;
     bool canDrag;
+    bool canClick = true;
     Rigidbody rb;
 
     public bool CanDrag { get => canDrag; set => canDrag = value; }
+    public bool CanClick { get => canClick; set => canClick = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
         canDrag = false;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && canClick)
         {
             player.ChangeStateToNormal();
             canDrag = true;
@@ -45,7 +47,11 @@ public class PlayerController : MonoBehaviour
         }
         
         if(player.PlayerState == PlayerStates.bonusRampJump)
-        {           
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezeRotationY;
+            rb.constraints = RigidbodyConstraints.FreezeRotationZ;
+            transform.position += MovementZ();
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,17 +16,13 @@ public class GameManager : MonoBehaviour
     Player player;
     Vector3 playerSpawnPoint = new Vector3(0, 0.25f, 0);
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         GenerateLastLevel();
         playerSpawnPoint.z = platformPool.SpawnPointZ() - 8f;
         GeneratePlatform();
         MoveRamp();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         SpawnPlayer();
     }
 
@@ -45,7 +42,8 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        player.transform.position = Vector3.forward * (platformPool.SpawnPointZ() - 8f);
+        player.transform.position = GameObject.FindGameObjectWithTag("NewPlayerPos").transform.position + (Vector3.forward * 1.5f);
+        player.GetComponent<Player>().ChangeStateToNormal();
     }
 
     void GenerateLastLevel()
@@ -61,6 +59,7 @@ public class GameManager : MonoBehaviour
         level.CurrentLevel++;
         OnLevelUpdate();
         GeneratePlatform();
+        PlayerStats.Instance.SaveStats(level.CurrentLevel, level.LastLevel[0], level.LastLevel[1], level.LastLevel[2]);
     }
 
     void GeneratePlatform()
@@ -91,5 +90,10 @@ public class GameManager : MonoBehaviour
     {
         level.CurrentPart++;
         OnPartUpdate();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }

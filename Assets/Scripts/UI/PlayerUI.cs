@@ -9,7 +9,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject playerBonusUI;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI partText;
-    [SerializeField] TextMeshProUGUI speedText;
+    //[SerializeField] TextMeshProUGUI speedText;
     [SerializeField] Level level;
 
 

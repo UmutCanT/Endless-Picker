@@ -37,4 +37,12 @@ public class PlayerStats : MonoBehaviour
         levelPart2 = PlayerPrefs.GetInt(levelpartKey2, 0);
         levelPart3 = PlayerPrefs.GetInt(levelpartKey3, 0);
     }
+
+    public void SaveStats(int curLevel, int part1, int part2, int part3)
+    {
+        PlayerPrefs.SetInt(levelKey, curLevel);
+        PlayerPrefs.SetInt(levelpartKey1, part1);
+        PlayerPrefs.SetInt(levelpartKey2, part2);
+        PlayerPrefs.SetInt(levelpartKey3, part3);
+    }
 }

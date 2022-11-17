@@ -17,9 +17,6 @@ public class PlatformPool : MonoBehaviour
     GameObject rampPlatform;
     GameObject bonusPlatform;
 
-    Vector3 spawnBoxPos;
-    Vector3 spawnBoxMax;
-
     void Awake()
     {
         SpawnBonusArea();
@@ -29,8 +26,6 @@ public class PlatformPool : MonoBehaviour
             OnGet,
             OnRelease
             );
-
-        spawnBoxMax = levelPlatformPrefab.SpawnBox.bounds.max;
     }
    
     LevelPlatform CreateLevelPlatform()
@@ -46,9 +41,8 @@ public class PlatformPool : MonoBehaviour
         lPlatform.gameObject.SetActive(true);
         lPlatform.RequiredColletablesToPass = level.SelectedLevel[level.Part-1].RequiredCollectablesToPass;       
         lPlatform.transform.position = Vector3.forward * SpawnPointZ();
-        spawnBoxPos = lPlatform.SpawnBox.transform.position;
         zLastEndPointPos = lPlatform.EndPointZ;
-        SpawnCollectables(level.SelectedLevel[level.Part - 1].SpawnedCollectables);
+        SpawnCollectables(level.SelectedLevel[level.Part - 1].SpawnedCollectables, lPlatform.transform.position);
     }
 
     void ActivateBonusPlatform()
@@ -75,34 +69,17 @@ public class PlatformPool : MonoBehaviour
         bonusPlatform.SetActive(false);
     }
 
-    void SpawnCollectables(int numberOfCollectables)
+    void SpawnCollectables(int numberOfCollectables, Vector3 pos)
     {
         for (int i = 0; i < numberOfCollectables; i++)
         {
             if (i <= numberOfCollectables)
             {
-                level.SelectedLevel[level.Part - 1].SpawnPos = Bounds(numberOfCollectables, i, true);
+                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(-1f, 1.5f, pos.z -8.5f + i);
             }else
-                level.SelectedLevel[level.Part - 1].SpawnPos = Bounds(numberOfCollectables, i, false);
+                level.SelectedLevel[level.Part - 1].SpawnPos = new Vector3(1f, 1.5f, pos.z - 8.5f + i);
             collectablePool.GetCollectable();
         }     
-    }
-
-    Vector3 Bounds(int numberOfCollectables, int order, bool side)
-    {
-        float xMax = spawnBoxPos.x + spawnBoxMax.x;
-        float xMin = spawnBoxPos.x - spawnBoxMax.x;
-        float zMax = spawnBoxPos.z + spawnBoxMax.z;
-        float zMin = spawnBoxPos.z - spawnBoxMax.z;
-
-        float xDifference = (4 * spawnBoxMax.x) / (float)numberOfCollectables;
-        float zDifference = (4 * spawnBoxMax.z) / (float)numberOfCollectables;
-        if (side)
-        {
-            return new Vector3(xMax - ((float)order * xDifference), 2f, zMax - ((float)order * zDifference));
-        } else
-            return new Vector3(xMin + ((float)(order - numberOfCollectables/2 ) * xDifference), 2f, zMax - ((float)order * zDifference));
-        
     }
 
     void OnRelease(LevelPlatform lPlatform)

@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         CheckPoint.OnCheck += ChangeStateToStop;
         CheckPoint.OnCheck += ForceActivator;
         BonusCheck.OnLevelComplete += ChangeStateToStop;
+        NextLevelPoint.OnLevelPass += ChangeStateToJump;
     }
 
     void OnDisable()
@@ -34,14 +35,16 @@ public class Player : MonoBehaviour
         CheckPoint.OnCheck -= ChangeStateToStop;
         CheckPoint.OnCheck -= ForceActivator;
         BonusCheck.OnLevelComplete -= ChangeStateToStop;
+        NextLevelPoint.OnLevelPass -= ChangeStateToJump;
     }
 
     public void ChangeStateToNormal()
     {
         OnChangeToNormal();
         forceArea.SetActive(false);
-        playerState = PlayerStates.normal;
+        playerState = PlayerStates.normal; 
         GetComponent<PlayerController>().enabled = true;
+        GetComponent<PlayerController>().CanClick = true;
     }
 
     void ChangeStateToStop()
@@ -51,16 +54,17 @@ public class Player : MonoBehaviour
         GetComponent<PlayerController>().enabled = false;
     }
 
+    void ChangeStateToJump()
+    {
+        playerState = PlayerStates.bonusRampJump;
+        GetComponent<PlayerController>().CanClick = false;
+    }
+
     void ForceActivator()
     {
         forceArea.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
 
 public enum PlayerStates

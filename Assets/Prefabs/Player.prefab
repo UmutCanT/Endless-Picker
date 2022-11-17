@@ -5565,8 +5565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2232400125658135678}
-  speed: 5
-  dragSpeed: 0.25
 --- !u!54 &2232400125658135677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5620,7 +5618,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4803352, y: 3, z: 1.2227815}
+  m_Size: {x: 0.6, y: 3, z: 1.2227815}
   m_Center: {x: 2.1120949, y: 1, z: -0.3262636}
 --- !u!65 &330273594227821249
 BoxCollider:
@@ -5633,7 +5631,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4803352, y: 3, z: 1.2227815}
+  m_Size: {x: 0.6, y: 3, z: 1.2227815}
   m_Center: {x: -2.112095, y: 1, z: -0.3262636}
 --- !u!65 &8542087425864731418
 BoxCollider:
