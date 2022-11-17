@@ -9,7 +9,7 @@ public class Collectable : MonoBehaviour
     [SerializeField] GameObject capsule;
     [SerializeField] GameObject cylinder;
     [SerializeField] Rigidbody rb;
-    const float forceMult = 0.4f;
+    const float forceMult = 0.45f;
     //[SerializeField] GameObject cone;
 
     public void OnSpawn(float scale, Vector3 pos)

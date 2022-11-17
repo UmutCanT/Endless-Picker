@@ -12,11 +12,13 @@ public class Level : ScriptableObject
     [SerializeField] LevelTypes[] levelPart3;
     LevelTypes[] selectedLevel = new LevelTypes[3];
     int[] lastLevel = new int[3];
+    int currentPart;
 
     public LevelTypes[] SelectedLevel { get => selectedLevel; set => selectedLevel = value; }
     public int[] LastLevel { get => lastLevel; set => lastLevel = value; }
     public int Part { get => part; set => part = value; }
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
+    public int CurrentPart { get => currentPart; set => currentPart = value; }
 
     int Part1 => Random.Range(0, levelPart1.Length);
     int Part2 => Random.Range(0, levelPart2.Length);

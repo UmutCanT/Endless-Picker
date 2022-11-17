@@ -16,13 +16,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GenerateLastLevel();
-        level.Part = 0;
         playerSpawnPoint.z = platformPool.SpawnPointZ() - 8f;
-        for (int i = 0; i < 3; i++)
-        {
-            level.Part++;
-            platformPool.GetLevelPlatform();
-        }
+        GeneratePlatform();
+        MoveRamp();
     }
 
     // Start is called before the first frame update
@@ -33,12 +29,14 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        
+        NextLevelPoint.OnLevelPass += GenerateLevel;
+        RampPoint.OnJump += MoveRamp;
     }
 
     void OnDisable()
     {
-        
+        NextLevelPoint.OnLevelPass -= GenerateLevel;
+        RampPoint.OnJump += MoveRamp;
     }
 
     void GenerateLastLevel()
@@ -49,6 +47,22 @@ public class GameManager : MonoBehaviour
     void GenerateLevel()
     {
         level.GenerateLevel();
+        GeneratePlatform();
+    }
+
+    void GeneratePlatform()
+    {
+        level.Part = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            level.Part++;
+            platformPool.GetLevelPlatform();
+        }
+    }
+
+    void MoveRamp()
+    {
+        platformPool.ActivateRampPlatform();
     }
 
     void SpawnPlayer()

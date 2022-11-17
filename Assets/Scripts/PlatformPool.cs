@@ -47,7 +47,7 @@ public class PlatformPool : MonoBehaviour
         lPlatform.Level = PlayerStats.Instance.PlayerLevel;
         lPlatform.Part = level.Part;
         lPlatform.RequiredColletablesToPass = level.SelectedLevel[level.Part-1].RequiredCollectablesToPass;       
-        lPlatform.transform.position = new Vector3(0, 0, SpawnPointZ());
+        lPlatform.transform.position = Vector3.forward * SpawnPointZ();
         spawnBoxPos = lPlatform.SpawnBox.transform.position;
         zLastEndPointPos = lPlatform.EndPointZ;
         SpawnCollectables(level.SelectedLevel[level.Part - 1].SpawnedCollectables);
@@ -57,9 +57,16 @@ public class PlatformPool : MonoBehaviour
     {
         if (level.Part == 1)
         {
-            bonusPlatform.SetActive(true);
             bonusPlatform.transform.position = Vector3.forward * (zLastEndPointPos - 15f);
+            bonusPlatform.SetActive(true);
         }
+    }
+
+    public void ActivateRampPlatform()
+    {
+        rampPlatform.SetActive(true);
+        rampPlatform.transform.position = new Vector3(0, 4f, zLastEndPointPos + 5f);
+        zLastEndPointPos += 55f;
     }
 
     void SpawnBonusArea()
