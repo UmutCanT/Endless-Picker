@@ -1,4 +1,2 @@
 # Endless-Picker
-3D Android Game
-I try to implement mini level editor with fully auto system.
-I use scriptable objects for it. Still needs couple of fixes and spawn area implementation.
+Clone of 3D Picker within a week. I try to implemented fully automated mini level editor(I use scriptable objects for it). Still needs couple of fixes and spawn area implementation.
